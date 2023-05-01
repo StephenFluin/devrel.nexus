@@ -7,6 +7,17 @@
         <link href="/styles.css" rel="stylesheet"/>
         <meta name="theme-color" content="#004AAD">
         <link rel="icon" type="image/png" href="/i/favicon.png">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-658GN6HSEE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-658GN6HSEE');
+        </script>
     </head>
     <body>
         <div id="page">
@@ -31,7 +42,7 @@
                 </ul>
             </header>
             <div id="content">
-            {{ content | safe }}
+                {{ content | safe }}
             </div>
             <div id="footer">
                 &copy; 2023 DevRel Nexus
