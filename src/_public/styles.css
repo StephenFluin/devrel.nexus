@@ -1,75 +1,107 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 
 * {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    background-color: black;
-    color:white;
-    font-size: 1.2rem;
-    line-height:30px;
-    font-family:'Roboto', sans-serif;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 30px;
+  font-family: "Roboto", sans-serif;
 }
 #page {
-    margin:0px auto;
-    justify-content: center;
-    height: 100vh;
-    max-width:900px;
-    padding:16px;
+  margin: 0px auto;
+  justify-content: center;
+  height: 100vh;
+  max-width: 900px;
+  padding: 16px;
 }
-
-
 
 p {
-    margin: 0 0 16px;
+  margin: 0 0 16px;
 }
 header {
-    display:flex;
-
+  display: flex;
+  align-items:center;
 }
 
-h1,h2,h3,h4,h5 {
-    margin: 0 0 32px;
-    font-weight: 800;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0 0 32px;
+  font-weight: 800;
 }
 
 ul.nav {
-    list-style-type: none;
-    display:flex;
-    align-items:center;
-    flex-grow: 1;
-    justify-content: space-around;
-    font-weight:800;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-around;
+  font-weight: 800;
 }
 a:visited {
-    color:#5090D0;
-    text-decoration: none;
+  color: #5090d0;
+  text-decoration: none;
 }
 a:link {
-    color:#5090D0;
-    text-decoration: none;
-
+  color: #5090d0;
+  text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 #content {
-    min-height:80vh;
-    padding:16px 0;
+  min-height: 80vh;
+  padding: 16px 0;
 }
 #footer {
-    text-align:center;
+  text-align: center;
 }
 
 /* Fix numbered list offset */
-ul,ol {
-    list-style-position:inside;
-    line-height:42px;
+ul,
+ol {
+  list-style-position: inside;
+  line-height: 42px;
 }
-li ul,ol {
-    margin-left:32px;
+li ul,
+ol {
+  margin-left: 32px;
+}
+
+.mobile {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 650px) {
+  #page {
+    padding: 8px;
+  }
+  .mobile {
+    display: block;
+  }
+  .nomobile {
+    display: none;
+  }
+  ul.nav {
+    display: none;
+  }
+  ul.nav.show {
+    position: absolute;
+    display: block;
+    background-color: #202020;
+    width: 90%;
+    top: 64px;
+    padding: 32px;
+    border:1px solid white;
+    border-radius:6px;
+  }
 }

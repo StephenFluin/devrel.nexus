@@ -18,15 +18,22 @@
 
             gtag('config', 'G-658GN6HSEE');
         </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('menu').addEventListener('click', function () {
+                    document.querySelector('ul.nav').classList.toggle('show');
+                });
+            });
+        </script>
     </head>
     <body>
         <div id="page">
             <header>
-                <a href="/">
+                <a href="/" style="line-height:0">
                     <img src="/i/devrel-nexus.png" height="48">
                 </a>
 
-                <ul class="nav">
+                <ul class="nav nomobile">
                     <li>
                         <a href="/people">People</a>
                     </li>
@@ -40,6 +47,9 @@
                         <a href="/outcomes">Outcomes</a>
                     </li>
                 </ul>
+                <div class="mobile" id="menu" style="flex-grow:1;justify-content:right;display:flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24"><title>menu</title><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+                </div>
             </header>
             <div id="content">
                 {{ content | safe }}
