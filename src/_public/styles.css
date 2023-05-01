@@ -36,6 +36,9 @@ h5 {
   margin: 0 0 32px;
   font-weight: 800;
 }
+a:link.header-anchor {
+    color:white;
+}
 
 ul.nav {
   list-style-type: none;

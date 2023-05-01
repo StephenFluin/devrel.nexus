@@ -1,10 +1,24 @@
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItAttrs = require("markdown-it-attrs");
 
 module.exports = function (eleventyConfig) {
-  
-  eleventyConfig.addPassthroughCopy({"src/_public":"/"});
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: false,
+  };
 
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt(options)
+      .use(markdownItAnchor, {
+        permalink: markdownItAnchor.permalink.headerLink(),
+      })
+      .use(markdownItAttrs)
+  );
 
-  
+  eleventyConfig.addPassthroughCopy({ "src/_public": "/" });
 
   // eleventyConfig.addPlugin(mdxPlugin);
 
@@ -13,6 +27,5 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "_site",
     },
-    markdownTemplateEngine: "njk",
   };
 };
