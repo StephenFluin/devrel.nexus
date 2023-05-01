@@ -105,8 +105,9 @@ ol {
     position: absolute;
     display: block;
     background-color: #202020;
-    width: 90%;
     top: 64px;
+    left: 8px;
+    width: calc(100% - 16px);
     padding: 32px;
     border: 1px solid white;
     border-radius: 6px;
