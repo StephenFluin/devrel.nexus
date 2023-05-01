@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background-color: black;
+    color:white;
+    font-size: 1.2rem;
+    line-height:30px;
+    font-family:'Roboto', sans-serif;
+}
+#page {
+    margin:0px auto;
+    justify-content: center;
+    height: 100vh;
+    max-width:900px;
+    padding:16px;
+}
+
+
+
+p {
+    margin: 0 0 16px;
+}
+header {
+    display:flex;
+
+}
+
+h1,h2,h3,h4,h5 {
+    margin: 0 0 32px;
+    font-weight: 800;
+}
+
+ul.nav {
+    list-style-type: none;
+    display:flex;
+    align-items:center;
+    flex-grow: 1;
+    justify-content: space-around;
+    font-weight:800;
+}
+a:visited {
+    color:#5090D0;
+    text-decoration: none;
+}
+a:link {
+    color:#5090D0;
+    text-decoration: none;
+
+}
+a:hover {
+    text-decoration: underline;
+}
+
+#content {
+    min-height:80vh;
+    padding:16px 0;
+}
+#footer {
+    text-align:center;
+}
+
+/* Fix numbered list offset */
+ul,ol {
+    list-style-position:inside;
+    line-height:42px;
+}
+li ul,ol {
+    margin-left:32px;
+}
