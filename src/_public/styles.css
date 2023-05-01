@@ -25,7 +25,7 @@ p {
 }
 header {
   display: flex;
-  align-items:center;
+  align-items: center;
 }
 
 h1,
@@ -80,6 +80,8 @@ ol {
   display: none;
 }
 
+
+
 /* Mobile styles */
 @media (max-width: 650px) {
   #page {
@@ -91,6 +93,11 @@ ol {
   .nomobile {
     display: none;
   }
+  #menu {
+    flex-grow: 1;
+    justify-content: right;
+    display: flex;
+  }
   ul.nav {
     display: none;
   }
@@ -101,7 +108,7 @@ ol {
     width: 90%;
     top: 64px;
     padding: 32px;
-    border:1px solid white;
-    border-radius:6px;
+    border: 1px solid white;
+    border-radius: 6px;
   }
 }
