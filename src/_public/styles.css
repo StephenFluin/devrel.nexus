@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: black;
+  background-color: rgb(17,17,17);
   color: white;
   font-size: 1.2rem;
   line-height: 30px;
@@ -26,6 +26,8 @@ p {
 header {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid rgb(64, 64, 64);
+  padding-bottom:16px;
 }
 
 h1,
@@ -36,7 +38,7 @@ h5 {
   margin: 0 0 32px;
   font-weight: 800;
 }
-a:link.header-anchor {
+a:link.header-anchor, a:visited.header-anchor {
     color:white;
 }
 
@@ -66,6 +68,10 @@ a:hover {
 }
 #footer {
   text-align: center;
+  border-top: 1px solid rgb(64, 64, 64);
+  padding: 32px 0;
+  display:flex;
+  justify-content: space-around;
 }
 
 /* Fix numbered list offset */
@@ -107,12 +113,12 @@ ol {
   ul.nav.show {
     position: absolute;
     display: block;
-    background-color: #202020;
+    background-color: rgb(32, 32, 32);
     top: 64px;
     left: 8px;
     width: calc(100% - 16px);
     padding: 32px;
-    border: 1px solid white;
+    border: 1px solid rgb(229, 231, 235);
     border-radius: 6px;
   }
 }
