@@ -1,6 +1,28 @@
-##  What is Developer Relations?
+#  What is Developer Relations?
 Developer Relations is the discipline related to driving developer behavior and adoption of a company's products and services.  It is a cross-functional role that requires a combination of technical, marketing, and community building skills.
 
+
+
+<div class="card">
+    <h2>Resources</h2>
+    <p>There are lots of great tools that Developer Relations teams should consider using, and there are a lot of great communities to join to continue crafting your skillsets</p>
+    <ul>
+        <li>
+            Tools
+            <ul>
+                <li><a href="https://github.com/jgehrcke/github-repo-stats">GitHub Repo Stats</a></li>
+                <li><a href="https://www.savannahhq.com/">Savannah</a></li>
+            </ul>
+        </li>
+        <li>Communities
+        <ul>
+        <li><a href="https://devrelcollective.fun/">https://devrelcollective.fun/</a></li>
+        <li><a href="https://developerrelations.com/">https://developerrelations.com/</a></li>
+        <li><a href="https://developerrelations.com/devrelcon">DevRel Con</a></li>
+        </ul>
+        </li>
+    </ul>
+</div>
 
 
 ## What's the most important part of developer relations?

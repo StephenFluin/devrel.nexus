@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(17,17,17);
+  background-color: rgb(17, 17, 17);
   color: white;
   font-size: 1.2rem;
   line-height: 30px;
@@ -27,7 +27,7 @@ header {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgb(64, 64, 64);
-  padding-bottom:16px;
+  padding-bottom: 16px;
 }
 
 h1,
@@ -38,8 +38,16 @@ h5 {
   margin: 0 0 32px;
   font-weight: 800;
 }
-a:link.header-anchor, a:visited.header-anchor {
-    color:white;
+
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 64px;
+}
+a:link.header-anchor,
+a:visited.header-anchor {
+  color: white;
 }
 
 ul.nav {
@@ -70,8 +78,9 @@ a:hover {
   text-align: center;
   border-top: 1px solid rgb(64, 64, 64);
   padding: 32px 0;
-  display:flex;
+  display: flex;
   justify-content: space-around;
+  margin-top: 64px;
 }
 
 /* Fix numbered list offset */
@@ -80,8 +89,12 @@ ol {
   list-style-position: inside;
   line-height: 42px;
 }
-li ul,
-ol {
+#content ul,
+#content ol {
+  margin-bottom: 32px;
+}
+li > ul,
+li > ol {
   margin-left: 32px;
 }
 
@@ -89,7 +102,20 @@ ol {
   display: none;
 }
 
+hr {
+  margin: 32px;
+}
 
+.card {
+    background-color: rgb(32, 32, 32);
+    padding: 8px 32px;
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 6px;
+}
+.card h2, .card h3 {
+    margin-top: 16px;
+
+}
 
 /* Mobile styles */
 @media (max-width: 650px) {

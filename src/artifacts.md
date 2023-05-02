@@ -1,5 +1,7 @@
 # Artifacts
-DevRel teams are capable of many things. This is a menu of the things that DevRel teams COULD focus on delivering.
+DevRel teams are capable of many things. This is a partial menu of the things that DevRel teams COULD focus on delivering. 
+
+Focus ends up being one of the most important skills for a DevRel team to develop, as all of these artifacts will create value for developers, but the team must identify the artifacts and outcomes with the greatest impact to cost ratio.
 
 
 * Documentation
