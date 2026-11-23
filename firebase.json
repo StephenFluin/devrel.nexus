@@ -1,10 +1,21 @@
 {
   "hosting": {
     "public": "_site",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        ]
+      },
+      {
+        "source": "/i/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
+      }
     ]
   }
 }

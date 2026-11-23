@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <h1 id="hero-title">{{ title }}</h1>
+    <p class="lede">{{ lede }}</p>
+  </div>
+</section>
+
+<section class="wrap pillars" aria-labelledby="pillars-title">
+  <h2 id="pillars-title" class="section-title">The four pillars</h2>
+  <ol class="pillar-grid" role="list">
+    {%- for pillar in site.pillars %}
+    <li class="pillar">
+      <span class="pillar__num" aria-hidden="true">0{{ loop.index }}</span>
+      <h3><a href="{{ pillar.url }}">{{ pillar.title }}</a></h3>
+      <p>{{ pillar.summary }}</p>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+<div class="wrap prose home-prose">
+  {{ content | safe }}
+</div>

@@ -1,0 +1,707 @@
+/* ==========================================================================
+   DevRel Nexus — site styles
+   Dark by default, light when the OS asks for it. No web fonts: the system
+   UI stack renders instantly and looks native everywhere.
+   ========================================================================== */
+
+/* ---- Design tokens ------------------------------------------------------ */
+:root {
+  color-scheme: dark light;
+
+  --brand: #004aad;
+  --bg: #0b0d12;
+  --surface: #13161e;
+  --surface-2: #1a1e29;
+  --border: #262b38;
+  --text: #e8eaf0;
+  --text-muted: #a3a9b8;
+  --accent: #7fb0ff;
+  --accent-strong: #a9c9ff;
+  --glow: rgb(0 74 173 / 0.35);
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.94rem);
+  --step-0: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --step-3: clamp(2.1rem, 1.6rem + 2.2vw, 3.4rem);
+
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: clamp(3rem, 2rem + 4vw, 5.5rem);
+
+  --radius: 14px;
+  --measure: 68ch;
+  --wrap: 72rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --surface: #f5f7fb;
+    --surface-2: #eef1f7;
+    --border: #dde2ec;
+    --text: #141821;
+    --text-muted: #555d70;
+    --accent: #0047a8;
+    --accent-strong: #002f73;
+    --glow: rgb(0 74 173 / 0.12);
+  }
+}
+
+/* ---- Reset & base ------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  flex: 1;
+}
+
+main:focus {
+  outline: none;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--accent-strong);
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+/* ---- Skip link ---------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 100;
+  padding: var(--space-xs) var(--space-s);
+  background: var(--brand);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---- Header ------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-m);
+  padding-block: 0.75rem;
+}
+
+.site-logo {
+  border-radius: 6px;
+}
+
+.site-logo img {
+  width: 145px;
+  height: 40px;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+/* Small screens: nav drops below the logo as one full-width row. */
+@media (max-width: 34rem) {
+  .site-nav {
+    width: 100%;
+  }
+
+  .site-nav ul {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-inline: -0.6rem;
+  }
+
+  .site-nav a {
+    padding-inline: 0.6rem;
+  }
+}
+
+/* ---- Shared type pieces ------------------------------------------------- */
+.eyebrow {
+  margin-bottom: var(--space-s);
+  color: var(--accent);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lede {
+  max-width: 60ch;
+  margin-top: var(--space-m);
+  color: var(--text-muted);
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.section-title {
+  margin-bottom: var(--space-m);
+  font-size: var(--step-2);
+}
+
+/* ---- Home: hero & pillars ----------------------------------------------- */
+.hero {
+  padding-block: var(--space-xl) var(--space-l);
+  /* The ellipse fades out before the hero ends, so there's no hard edge. */
+  background: radial-gradient(50rem 20rem at 80% 0%, var(--glow), transparent);
+}
+
+.hero h1 {
+  max-width: 16ch;
+  font-size: var(--step-3);
+  font-weight: 800;
+}
+
+.pillars {
+  padding-block: var(--space-l);
+}
+
+/* 1, 2 or 4 columns, never an orphaned 3 + 1. */
+.pillar-grid {
+  display: grid;
+  gap: var(--space-s);
+}
+
+@media (min-width: 36rem) {
+  .pillar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 60rem) {
+  .pillar-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
+}
+
+.pillar:hover,
+.pillar:focus-within {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pillar:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.pillar__num {
+  color: var(--accent);
+  font-size: var(--step--1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pillar h3 {
+  font-size: var(--step-1);
+}
+
+.pillar h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* The whole card is clickable, while the link text stays the accessible name. */
+.pillar h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.pillar h3 a:focus-visible {
+  outline: none;
+}
+
+.pillar:has(a:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pillar p {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  line-height: 1.55;
+}
+
+.home-prose {
+  padding-bottom: var(--space-xl);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-s);
+  max-width: none;
+}
+
+/* ---- Content pages ------------------------------------------------------ */
+.page {
+  padding-block: var(--space-xl);
+}
+
+.page-header {
+  margin-bottom: var(--space-l);
+  padding-bottom: var(--space-l);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+  font-size: var(--step-3);
+  font-weight: 800;
+}
+
+/* ---- Prose (rendered Markdown) ------------------------------------------ */
+.prose > * {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-top: var(--space-s);
+}
+
+.prose h2 {
+  margin-top: var(--space-xl);
+  font-size: var(--step-2);
+}
+
+.prose h3 {
+  margin-top: var(--space-l);
+  font-size: var(--step-1);
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: var(--space-s);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose li + li,
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.4em;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.prose blockquote {
+  margin-block: var(--space-l);
+  padding: var(--space-m) var(--space-m) var(--space-m) var(--space-l);
+  border-left: 4px solid var(--brand);
+  background: linear-gradient(90deg, var(--glow), transparent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Heading self-links: inherit the heading colour and reveal a # on hover. */
+.prose .header-anchor {
+  color: inherit;
+  text-decoration: none;
+}
+
+.prose .header-anchor::after {
+  content: "#";
+  margin-left: 0.35em;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.prose .header-anchor:hover::after,
+.prose .header-anchor:focus-visible::after {
+  opacity: 1;
+}
+
+/* ---- Components inside prose ------------------------------------------- */
+.card,
+.note {
+  padding: var(--space-m);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.resource-grid .card {
+  margin: 0;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li + li {
+  margin-top: 0.6em;
+}
+
+.note {
+  margin-top: var(--space-xl);
+  color: var(--text-muted);
+  border-left: 4px solid var(--brand);
+}
+
+/* "On this page" chips. */
+.toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  padding: 0;
+  list-style: none;
+}
+
+.toc li + li {
+  margin-top: 0;
+}
+
+.toc a {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* Numbered sub-goals on the Outcomes page. */
+.prose .outcome-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: var(--space-xs);
+  max-width: none;
+  margin-top: var(--space-m);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.prose .outcome-steps li {
+  margin: 0;
+  counter-increment: step;
+}
+
+.outcome-steps a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  height: 100%;
+  padding: var(--space-s);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.outcome-steps a::before {
+  content: "0" counter(step);
+  color: var(--accent);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.outcome-steps a:hover {
+  border-color: var(--accent);
+}
+
+/* Artifact menu: each top-level item becomes a card. */
+.prose .artifact-grid {
+  max-width: none;
+  margin-top: var(--space-l);
+}
+
+/* 1, 2 or 3 columns: nine categories make a clean 3 × 3. */
+.artifact-grid > ul {
+  display: grid;
+  gap: var(--space-s);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 30rem) {
+  .artifact-grid > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 52rem) {
+  .artifact-grid > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.artifact-grid > ul > li {
+  margin: 0;
+  padding: var(--space-m);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.artifact-grid > ul > li > strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+}
+
+.artifact-grid li ul {
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.artifact-grid ul li {
+  margin-top: 0.3em;
+}
+
+/* ---- Previous / next pager --------------------------------------------- */
+.pager {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-s);
+  max-width: var(--measure);
+  margin-top: var(--space-xl);
+}
+
+.pager a {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: var(--step-1);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pager a:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.pager span {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+
+.pager__next {
+  grid-column: -2;
+  text-align: right;
+}
+
+/* ---- Footer ------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding-block: var(--space-l);
+}
+
+.site-footer ul {
+  display: flex;
+  gap: var(--space-m);
+}
+
+.site-footer a {
+  color: var(--text-muted);
+}
+
+.site-footer a:hover {
+  color: var(--text);
+}
+
+/* ---- Print -------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .pager,
+  .toc {
+    display: none;
+  }
+
+  .prose a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+}

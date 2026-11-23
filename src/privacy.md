@@ -1,7 +1,9 @@
-# Privacy Policy
-Last Updated: April 2023
+---
+title: Privacy Policy
+lede: "Last updated: April 2023"
+---
 
-This Privacy Policy (“Policy”) describes the manner in which DevRel nexus (DevRel Nexus, “we,” or “us”) and our website at https://devrel.nexus (the “Site”) use and collect data from individuals. This Policy, which is incorporated into and is subject to the DevRel Nexus Terms of Use, describes the information that we gather from you on the Site, how we use and disclose such information, and the steps we take to protect such information.
+This Privacy Policy (“Policy”) describes the manner in which DevRel Nexus (“DevRel Nexus,” “we,” or “us”) and our website at https://devrel.nexus (the “Site”) use and collect data from individuals. This Policy, which is incorporated into and is subject to the DevRel Nexus Terms of Use, describes the information that we gather from you on the Site, how we use and disclose such information, and the steps we take to protect such information.
 
 ## Information We Collect on the Site:
 User-provided Information. When you use the Site, we may collect information about you, including your name, email address, mailing address, credit card or other billing information. You may provide us with information in various ways on the Site. For example, you provide us with information when you make a purchase on the Site, or send us customer service-related requests.
@@ -26,7 +28,7 @@ Any information that you voluntarily choose to include in a publicly accessible 
 * We may make certain aggregated, automatically-collected, or otherwise non-personal information available to third parties for various purposes, including: (i) compliance with various reporting obligations; (ii) for business or marketing purposes; or (iii) to assist such parties in understanding our users’ interests, habits, and usage patterns for certain programs, content, services, advertisements, promotions, and/or functionality available through the Site.
 
 ## Your Choices
-You may, of course, decline to share certain information with us, in which case we may not be able to provide to you some of the features and functionality of the Site. You may update, correct, or delete your account information and preferences at any time by accessing your account preferences page on the Site. If you wish to access or amend any other personal information we hold about you, you may contact us at. Please note that while any changes you make will be reflected in active user databases within a reasonable period of time, we may retain all information you submit for backups, archiving, prevention of fraud and abuse, analytics, satisfaction of legal obligations, or where we otherwise reasonably believe that we have a legitimate reason to do so.
+You may, of course, decline to share certain information with us, in which case we may not be able to provide to you some of the features and functionality of the Site. You may update, correct, or delete your account information and preferences at any time by accessing your account preferences page on the Site. If you wish to access or amend any other personal information we hold about you, you may contact us at [devrel-nexus@mortalpowers.com](mailto:devrel-nexus@mortalpowers.com). Please note that while any changes you make will be reflected in active user databases within a reasonable period of time, we may retain all information you submit for backups, archiving, prevention of fraud and abuse, analytics, satisfaction of legal obligations, or where we otherwise reasonably believe that we have a legitimate reason to do so.
 
 If you receive commercial email from us, you may unsubscribe at any time by following the instructions contained within the email. You may also opt out from receiving commercial email from us by sending your request to us by email ator by writing to us at the address given at the end of this policy. We may allow you to view and modify settings relating to the nature and frequency of promotional communications that you receive from us in user account functionality on the Site.
 

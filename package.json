@@ -1,18 +1,27 @@
 {
   "name": "devrel.nexus",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A practical model for running a Developer Relations team: people, processes, artifacts and outcomes.",
   "scripts": {
-    "dev": "npx eleventy --serve"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "keywords": [],
-  "author": "",
+  "author": "Stephen Fluin",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.7",
-    "markdown-it-attrs": "^4.1.6"
+    "@11ty/eleventy": "^3.1.8",
+    "markdown-it": "^15.0.3",
+    "markdown-it-anchor": "^10.1.0",
+    "markdown-it-attrs": "^5.0.1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenFluin/devrel.nexus.git"
+  },
+  "homepage": "https://devrel.nexus",
+  "engines": {
+    "node": ">=18"
   }
 }

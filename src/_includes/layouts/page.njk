@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+---
+{#- Standard content page: a title header followed by long-form prose. #}
+<article class="wrap page">
+  <header class="page-header">
+    {%- if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+    <h1>{{ title }}</h1>
+    {%- if lede %}<p class="lede">{{ lede }}</p>{% endif %}
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  {%- set pillarIndex = -1 %}
+  {%- for pillar in site.pillars %}{% if pillar.url == page.url %}{% set pillarIndex = loop.index0 %}{% endif %}{% endfor %}
+  {%- if pillarIndex >= 0 %}
+  {%- set prev = site.pillars[pillarIndex - 1] if pillarIndex > 0 %}
+  {%- set next = site.pillars[pillarIndex + 1] if pillarIndex < site.pillars.length - 1 %}
+  <nav class="pager" aria-label="Pillars">
+    {%- if prev %}<a class="pager__prev" href="{{ prev.url }}" rel="prev"><span>Previous</span>{{ prev.title }}</a>{% endif %}
+    {%- if next %}<a class="pager__next" href="{{ next.url }}" rel="next"><span>Next</span>{{ next.title }}</a>{% endif %}
+  </nav>
+  {%- endif %}
+</article>
